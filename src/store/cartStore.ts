@@ -3,8 +3,8 @@ import {subscribeWithSelector} from 'zustand/middleware';
 import type {Cart} from '@/types';
 import {fetchCart, updateCartItem} from '@/services/api';
 
-const requestVersions = new Map<string, number>(); // for race condition
-const syncTimers = new Map<string, ReturnType<typeof setTimeout>>(); // to avoid rapid updates
+const requestVersions = new Map<string, number>(); // latest version of each item
+const syncTimers = new Map<string, ReturnType<typeof setTimeout>>(); // current sync job of each item
 
 const createVersion = (itemId: string) => {
   const requestVersion = (requestVersions.get(itemId) ?? 0) + 1;
