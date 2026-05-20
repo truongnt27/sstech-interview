@@ -1,6 +1,6 @@
 # SStech Interview - Mini Cart Component
 
-I've done these tasks with Copilot and ChatGPT
+I completed these tasks using Copilot and ChatGPT as development assistants.
 
 ## Task1 features
 
@@ -10,7 +10,7 @@ I've done these tasks with Copilot and ChatGPT
 - **Mock REST API**: Realistic API endpoints with configurable delays
 - **Dynamic Cart Calculations**: Real-time subtotal and item count updates
 
-## Task 3, 2 review and refeactor the PR
+## Task 3, 2: review and refactor the PR
 
 ```
 import React, {useState, useEffect} from 'react';
@@ -68,7 +68,7 @@ useEffect(() => {
 ```
 
 - This hook will call on every rendering => add dependencies
-- There's no clean up, so it will setState even this component is unmounted which leak the memory. Beside, we can abort the api call of previous product if needed => use AbortController to clean up
+- There's no cleanup, so it will setState even this component is unmounted which leak the memory. Besides, we can abort the api call of previous product if needed => use AbortController to clean up
 
 ### Issue 2
 
@@ -103,8 +103,8 @@ return (
 );
 ```
 
-- Layout Shift isssue cause by changing from loading state to loaded state => use skeleton same size, layout and reserve space for image (using ratio)
-- Images loading is not optimized => preload image for hero product, provide srcSet in case we have multiple screens
+- Layout Shift issue caused by changing from loading state to loaded state => use skeleton same size, layout and reserve space for image (using ratio)
+- Images loading is not optimized => prefetch the image for hero product, provide srcSet in case we have multiple screens
 
 ### My suggest refactor:
 
